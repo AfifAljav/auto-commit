@@ -26,7 +26,8 @@ def push_changes():
     subprocess.run(["git", "push"], cwd=REPO_DIR)
 
 if __name__ == "__main__":
-    min_commits = int(os.getenv("MIN_COMMITS", 100))
-    max_commits = int(os.getenv("MAX_COMMITS", 200))
+    # Convert environment variables to integers
+    min_commits = int(os.getenv("MIN_COMMITS", "100"))
+    max_commits = int(os.getenv("MAX_COMMITS", "200"))
     make_commits(min_commits, max_commits)
     push_changes()
